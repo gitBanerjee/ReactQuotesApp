@@ -1,4 +1,5 @@
-import { useState, useParams, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
+import { useParams } from "react-router-dom";
 
 import classes from "./Comments.module.css";
 import NewCommentForm from "./NewCommentForm";
@@ -8,9 +9,9 @@ import LoadingSpinner from "../UI/LoadingSpinner";
 import CommentsList from "./CommentsList";
 
 const Comments = () => {
-  const params = useParams();
   const [isAddingComment, setIsAddingComment] = useState(false);
   const { sendRequest, status, data: loadedComments } = useHttp(getAllComments);
+  const params = useParams();
 
   const { quoteId } = params;
 
